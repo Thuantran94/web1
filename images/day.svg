@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="434px" height="340px" viewBox="0 0 434 340" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Day</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="73.8376578%" x2="50%" y2="14.1977821%" id="linearGradient-1">
+            <stop stop-color="#229954" offset="0%"></stop>
+            <stop stop-color="#0a630b" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-2" cx="298.5" cy="98.5" r="15.5"></circle>
+        
+        <linearGradient x1="50%" y1="9.64766474%" x2="50%" y2="95.9295141%" id="linearGradient-4">
+          <stop stop-color="#1ea920" offset="0%"></stop>
+            <stop stop-color="#4a7b4b" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="9.64766474%" x2="50%" y2="95.9295141%" id="linearGradient-5">
+            <stop stop-color="#2dbd2f" offset="0%"></stop>
+            <stop stop-color="#4a7b4b" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="84.3966713%" x2="50%" y2="0%" id="linearGradient-6">
+            <stop stop-color="#12b114" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#4a7b4b" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Night">
+            <rect id="bg" fill="url(#linearGradient-1)" x="0" y="-160" width="434" height="506"></rect>
+            
+            <polygon id="sm-mountain" fill="url(#linearGradient-4)" points="-109 230.371094 -23.2443456 170.13417 3.26200171 190.742163 39.9791275 146.725609 93.3282121 191.821281 118.03651 195.131762 152 223.837093 152 230.371094"></polygon>
+            <polygon id="la-mountain" fill="url(#linearGradient-5)" points="72 237.837192 104.338133 198.512529 170.422632 183.315927 243.036207 114.600857 277.672319 144.731647 296.222578 134.221015 373.022444 55 436.015233 117.567077 477.148417 130.505041 522.698329 175.771515 571.634399 185.911954 618.701361 210.705424 625 238.961825"></polygon>
+            <polyline id="sm--mountain-reflection" fill="url(#linearGradient-6)" points="-109 222.41772 -23.2443456 282.654644 3.26200171 262.046651 39.9791275 306.063205 93.3282121 260.967533 118.03651 257.657052 152 228.951721 152 222.41772"></polyline>
+            <polyline id="la-mountain-reflection" fill="url(#linearGradient-6)" points="72 222.757584 104.338133 249.247787 170.422632 259.484647 243.036207 305.773056 277.672319 285.476106 296.222578 292.556364 373.022444 345.921875 436.015233 303.774927 477.148417 295.05955 522.698329 264.566776 571.634399 257.735889 618.701361 241.034309 625 222"></polyline>
+            <g id="tree" transform="translate(113.000000, 152.000000)">
+                <rect id="Rectangle-2" fill="#39613a" x="6.31578947" y="40.617284" width="3.15789474" height="29.382716"></rect>
+                <polygon id="Triangle" fill="#4d784d" points="7.5 13.6956522 15 44.9382716 0 44.9382716"></polygon>
+                <polygon id="Triangle-Copy" fill="#4d784d" points="7.5 15.75 15 31.5 0 31.5"></polygon>
+                <polygon id="Triangle" fill="#4d784d" points="7.5 0 15 22.4691358 0 22.4691358"></polygon>
+            </g>
+            <g id="tree-reflection" opacity="0.449999988" transform="translate(120.500000, 240.500000) scale(1, -1) translate(-120.500000, -240.500000) translate(113.000000, 222.000000)">
+                <rect id="Rectangle-2" fill="#39613a" x="6.31578947" y="21.4691358" width="3.15789474" height="15.5308642"></rect>
+                <polygon id="Triangle" fill="#4d784d" points="7.5 7.23913043 15 23.7530864 0 23.7530864"></polygon>
+                <polygon id="Triangle-Copy" fill="#4d784d" points="7.5 8.325 15 16.65 0 16.65"></polygon>
+                <polygon id="Triangle" fill="#4d784d" points="7.5 0 15 11.8765432 0 11.8765432"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

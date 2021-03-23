@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vn-VN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <title>VTG Online - Dịch vụ tài chính online</title>
+
+    <link type="text/css" rel="stylesheet" href="css/components.css" />
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/datetimepicker.css" type="text/css" media="all" />
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+    <script type="text/javascript" src="https://firebasestorage.googleapis.com/v0/b/vtgonl.appspot.com/o/JavaScript%2FRoboto-Medium-normal.js?alt=media&token=b0997753-052a-4a2b-9d0f-cdbbf256d9eb"></script>
+    <script type="text/javascript" src="https://firebasestorage.googleapis.com/v0/b/vtgonl.appspot.com/o/JavaScript%2FRoboto-Light-normal.js?alt=media&token=4054ffc7-825a-47e9-8b43-ebe0d3b7c29b"></script>
+    <script type="text/javascript" src="https://firebasestorage.googleapis.com/v0/b/vtgonl.appspot.com/o/JavaScript%2Fsigned.js?alt=media&token=83b61a45-d025-4eaf-82aa-d5677613a3f5"></script>
+
+    <script src="https://firebasestorage.googleapis.com/v0/b/vtgonl.appspot.com/o/JavaScript%2Fdatetimepicker.js?alt=media&token=2f299c71-64b7-4d73-a68f-6c7d5f2e7761"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.3.3"></script>
+    <script type="text/javascript" src="js/icons.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+    <script type="text/javascript" src="js/mfb.js"></script>
+
+    <script type="text/javascript" src="js/contract.js"></script>
+    <script type="text/javascript" src="js/admin.js"></script>
+    <script type="text/javascript" src="js/bill.js"></script>
+    
+
+
+</head>
+
+<body style="color: #fff; min-height:100vh">
+     <div class="layout-main">
+            <div class="ui-g" style="margin-top: 50px">
+                <div class="ui-g-12">
+                    <button class="mbutton-blue " id="idTC"><i class="fa fa-folder"></i></button>
+                    <button class="mbutton-blue " id="idCD"><i class="fa fa-minus-circle"></i></button>
+                    <button class="mbutton-blue " id="idDD"><i class="fa fa-lock"></i></button>
+                    <button class="mbutton-blue " id="idHT"><i class="fa fa-check-circle"></i></button>
+                    <button class="mbutton-blue " id="idDH"><i class="fa fa-trash"></i></button>
+                    <button class="mbutton-blue " id="idTK"><i class="fa fa-phone"></i></button>
+                    <br>
+                    <button class="mbutton-blue " id="doSendEmail" ><i class="fa fa-envelope"></i></button>
+                    <button class="mbutton-blue " id="idLI"><i class="fa fa-recycle"></i></button>
+                    <button class="mbutton-blue " id="fbuidreader" ><i class="fa fa-upload"></i></button>
+                    <br>
+                    <button class="mbutton-green" id="add_search_shd"><i class="fa fa-search"></i></button>
+                    <button class="mbutton-green" id="add_payment"><i class="fa fa-credit-card"></i></button>
+                    <button class="mbutton-green" id="add_search_phone"><i class="fa fa-phone"></i></button>
+                    <br>
+                    <button class="mbutton-red " id="deleteNoti"><i class="fa fa-envelope"></i></button>
+                    <button class="mbutton-red " id="refresh"><i class="fa fa-trash"></i></button>
+                    
+                </div>
+
+               <div class="table" id="mtable" style="display: none;">
+                    <table>
+                    <thead>
+                        <tr>
+                            <th>TT</th>
+                            <th>SHD</th>
+                            <th>Họ và Tên</th>
+                            <th>Liên Hệ</th>
+                            <th>SDT</th>
+                            <th>Số Tiền</th>
+                            <th>Kỳ Hạn</th>
+                            <th>TT Mỗi Tháng</th>
+                            <th>Ngày GN</th>
+                            <th>Ngày TT</th>
+                            <th>Ngày KT</th>
+                            <th>SNQH</th>
+                            <th>LSQH</th>
+                            <th>Đã TT</th>
+                            <th>Nợ TG</th>
+                            <th>Nợ LS</th>
+                            <th>Nợ DV</th>
+                            <th>Nợ GH</th>
+                            <th>Mục Đích Vay</th>
+                            <th>Kế Hoạch Trả</th>
+                            <th>Ngày Tạo</th>
+                            <th>Ghi Chú</th>
+                            <th>HĐ</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tresults">
+                        <center class="ui-g-12"><img id="loader1" src="images/loader.svg" width="28"/></center>
+                    </tbody>
+                </table>
+               </div>
+
+                <div class="table" id="mtable2" style="display: none;">
+                    <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Họ và Tên</th>
+                            <th>SDT</th>
+                            <th>Email</th>
+                            <th>Địa chỉ</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tresults2">
+                        <center class="ui-g-12"><img id="loader2" src="images/loader.svg" width="28"/></center>
+                    </tbody>
+                </table>
+               </div>
+               
+              
+                
+                <div class="row">
+                    <div class="col-3">
+                        <div> <br> <br> <label for="recipient-name" class="control-label" style="padding-right: 15px">Số hợp đồng:</label> <br> <input style="width: 100%;" type="text" class="form-control" id="id" maxlength="6" placeholder="123456"> </div> <button class="mbutton-green" id="doCheck"><i class="fa fa-search"></i></button> <button class="mbutton-orange" id="doHDRestrict"><i class="fa fa-minus-circle"></i></button> <button class="mbutton-red" id="doDelete"> <i class="fa fa-trash"></i></button> <button class="mbutton-blue" id="addEvent"> <i class="fa fa-recycle"></i></button>
+                        
+                    </div>
+                    <div class="col-3">
+                        <div> <br> <br> <label for="recipient-name" class="control-label" style="padding-right: 15px">Số điện thoại:</label> <br> <input style="width: 100%;" type="text" class="form-control" id="userphone" maxlength="10" placeholder="01 23 45 67 89"> </div> <button class="mbutton-green" id="doCheckUserPhone"><i class="fa fa-search"></i></button> <button class="mbutton-orange" id="doUserRestrict"><i class="fa fa-minus-circle"></i></button> <button class="mbutton-red" id="doUserDelete"><i class="fa fa-trash"></i></button>
+                    </div>
+                    <div class="col-3">
+                        <div> <br> <br> <label for="recipient-name" class="control-label" style="padding-right: 15px">Tên Khách Hàng:</label> <br> <input style="width: 100%;" type="text" class="form-control" id="name" placeholder="Nguyễn Văn A"> </div> <button class="mbutton-green" id="doCheckName"><i class="fa fa-search"></i></button>
+                        <div id="mresultName"> </div>
+                    </div>
+                </div>
+
+                <div class="ui-g-12" id="kq"></div>
+            </div>
+            <div class="ui-g">
+                <div class="ui-g-12" style="font-size: 12px;">
+                    <hr style="border-color: #78b4e650;margin-bottom: 20px;" /> <span class="footer-text-left"> <span style="font-size: 12px;">' Information was hidden for personal reason !' </span> </span> <span class="footer-text-right"> <span></span> </span> </div>
+            </div>
+        </div>
+
+</body>
+
+</html>
+
+
+

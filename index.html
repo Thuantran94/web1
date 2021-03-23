@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="vn-VN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <title>VTG Online - Dịch vụ tài chính online</title>
+    <link rel="shortcut icon" href="images/logo.png">
+    <link rel="icon" href=" images/logo.png">
+
+
+    <link type="text/css" rel="stylesheet" href="css/simpleSnackbar.css" />
+    <link type="text/css" rel="stylesheet" href="css/components.css" />
+    <link type="text/css" rel="stylesheet" href="css/layout-indigo.css" />
+    <link type="text/css" rel="stylesheet" href="css/animate.css" />
+    <link type="text/css" rel="stylesheet" href="css/aos.css">
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/core.js"></script>
+    <script type="text/javascript" src="js/layout.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/simpleSnackbar.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+    <script type="text/javascript" src="https://firebasestorage.googleapis.com/v0/b/vtgonl.appspot.com/o/JavaScript%2FRoboto-Medium-normal.js?alt=media&token=b0997753-052a-4a2b-9d0f-cdbbf256d9eb"></script>
+    <script type="text/javascript" src="https://firebasestorage.googleapis.com/v0/b/vtgonl.appspot.com/o/JavaScript%2FRoboto-Light-normal.js?alt=media&token=4054ffc7-825a-47e9-8b43-ebe0d3b7c29b"></script>
+    <script type="text/javascript" src="https://firebasestorage.googleapis.com/v0/b/vtgonl.appspot.com/o/JavaScript%2Fsigned.js?alt=media&token=83b61a45-d025-4eaf-82aa-d5677613a3f5"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.3.3"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+    <script type="text/javascript" src="js/mfb.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
+    <script type="text/javascript" src="js/contract.js"></script>
+    <script type="text/javascript" src="js/bill.js"></script>
+
+</head>
+
+
+
+
+
+
+<style type="text/css">
+    
+
+
+#notification-button{
+  width: 78px;
+  height: 59px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 16px;
+  right: 65px;
+  cursor: pointer;
+}
+
+#floating-button{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+
+.nds{
+  width: 60px;
+  height: 60px;
+  border-radius: 25%;
+  position: fixed;
+  z-index: 300;
+  cursor: pointer;
+}
+
+.nd1{
+  width: 50px;
+  height: 50px;
+  background-image: url('images/facebook-messenger.svg');
+  background-size: 100%;
+  right: 30px;
+  bottom: 100px;
+}
+
+.nd3{
+  width: 50px;
+  height: 50px;
+  background-color: #ffffff;
+  background-image: url('https://i.imgur.com/Csq4ef0.png');
+  background-size: 100%;
+  right: 30px;
+  bottom: 170px;
+}
+
+
+.nd5{
+  width: 50px;
+  height: 50px;
+  background-image: url('https://i.imgur.com/TBLXZWl.png');
+  background-size: 100%;
+  right: 30px;
+  bottom: 240px;
+}
+
+.nd7{
+  width: 50px;
+  height: 50px;
+  background-image: url('images/question.svg');
+  background-size: 100%;
+  right: 30px;
+  bottom: 310px;
+}
+
+
+
+
+.scroll {
+  display: block;
+  width: 32px;
+  height: 32px;
+  border: 2px solid #FFF;
+  background-size: 14px auto;
+  border-radius: 50%;
+  z-index: 2;
+  -webkit-animation: bounce 2s infinite 2s;
+  animation: bounce 2s infinite 2s;
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+}
+
+
+.scroll:before {
+    display: block;
+    width: 12px;
+    height: 12px;
+    content: "";
+    border: 2px solid white;
+    border-width: 0px 0 2px 2px;
+}
+
+.down:before {
+    margin-top: 5px;
+    transform: rotate(-45deg);
+}
+
+.up:before {
+    margin-top: 12px;
+    transform: rotate(135deg);
+}
+
+@keyframes bounce {
+  0%,
+  100%,
+  20%,
+  50%,
+  80% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+  60% {
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+}
+
+
+
+</style>
+
+   
+
+<div id="loader"><img src="images/loader.svg" width="28" /></div>
+<section id="top"></section>
+<body id="content" class="background layout-compact auth-false" style="padding:">
+    <div class="layout-wrapper menu-layout-overlay" style="max-width: 1067px;margin: 0 auto;">
+<form id="j_idt10" name="j_idt10" method="post" action="index.html" enctype="application/x-www-form-urlencoded"> <div class="topbar clearfix" style="position: absolute;background: none;max-width: 1067px;"> <div class="topbar-left"> <a href="#" id="logo"> <img id="j_idt58" src="images/logo.png" style="position: absolute; bottom: 0px;" /> <img id="j_idt58" src="images/output.png" style="position: absolute; bottom: 0px; margin-left: 70px" /> <h2 style="color: white;margin-top: 58px">VTG Online</h2> </a> </div> <div style="position: fixed; right: 0" class="topbar-right"> <a id="topbar-menu-button" href="#"> <img id="j_idt10:j_idt12" src="images/fillter.svg" alt="" width="30" /> </a> <ul class="topbar-items fadeInDown animated"> <li> <div class="ui-g"> <div id="payment" class="ui-outputpanel ui-widget ui-g-6"> <a href="#" class="ui-widget"> <div class="topbar-button"> <img id="j_idt10:j_idt20" src="images/moneyD.svg" alt="" width="22" style="margin: 5px;" /> <span class="topbar-button-name" style="font-size: 10px;font-weight: 600;">Thanh toán</span> </div> </a> </div> <div class=" ui-outputpanel ui-widget ui-g-6"> <a href="#" class="ui-widget"> <div class="topbar-button"> <img src="images/icon-login.svg" alt="" width="24" style="margin: 5px;" /> <span class=" unauthenticated topbar-button-name" data-toggle="modal" data-target="#loginModal" style="font-size: 10px;font-weight: 600">Đăng nhập</span> <span class=" authenticated topbar-button-name" id="userPhoneID" style="font-size: 10px;font-weight: 600">Tài khoản</span> </div> </a> </div> </div> </li> <li> <a href="help.html" class="ui-link ui-widget menu-element"> <span class="topbar-item-name"> <img src="images/help.svg" alt="" width="16" height="16" style="float: left;margin-right: 5px;" />Trợ giúp </span> </a> </li> <li> <a href="contacts.html" id="contact" class="ui-link ui-widget menu-element"> <span class="topbar-item-name"> <img src="images/mail.svg" alt="" width="16" height="16" style="float: left;margin-right: 5px;" />Liên hệ </span> </a> </li> </ul> </div> </div> </form>
+        <form id="menuform" name="menuform" method="post" action="index.html" enctype="application/x-www-form-urlencoded">
+            <div style="display:none;">
+                <div class="nano">
+                    <div class="nano-content menu-scroll-content">
+                        <ul id="menuform:j_idt50" class="ultima-menu clearfix"></ul>
+                        <script id="menuform:j_idt50_s" type="text/javascript">
+                            $(function() {
+                                PrimeFaces.cw("Ultima", "me", {
+                                    id: "menuform:j_idt50",
+                                    stateful: true
+                                });
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="layout-main">
+
+          
+       
+            <div class="ui-g">
+
+                <div class="ui-g-12">
+                    <div class="ui-g" id="counthk">
+                        <h1 class="ui-g-12" style="font-weight:500;font-size: 10px;line-height: 0px;">' Information was hidden for personal reason !' </h1>
+
+                    </div>
+                </div>
+
+                <h1 class="ui-g-12 main-slogan" style="font-weight:600;margin-top: 50px;line-height: 22px;">' Information was hidden for personal reason !'
+                    <span style="font-size: 15px;">
+                        <br>
+                        <br>
+                        <strong>' Information was hidden for personal reason !'</strong>
+                    </span>
+                </h1>
+
+                
+
+                <div class="ui-g-12 ui-lg-7">
+
+                    <div class="slideshow-container">
+                      <div class="mySlides animate-fading">
+                        <p class="animate-right">' Information was hidden for personal reason !'</p>
+                        <img src="https://i.imgur.com/g9nLo9G.png">
+                      </div>
+
+                      <div class="mySlides animate-fading">
+                        <p class="animate-right">' Information was hidden for personal reason !' </p>
+                        <img src="https://i.imgur.com/TkeUOwz.png">
+                      </div>
+
+                      <div class="mySlides animate-fading">
+                        <p class="animate-right">' Information was hidden for personal reason !' </p>
+                        <img src="https://i.imgur.com/P1OAEeX.png">
+                      </div>
+
+                      <!-- Next and previous buttons -->
+                      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    </div>
+                    <br>
+                </div>
+
+
+                <div class="ui-g-12 ui-lg-5" style="margin-top: 50px">
+                    <form method="post">
+                        <div class="ui-g calculator-box">
+
+                            <center class="ui-g-12" style="font-size:13px;"> <span id="lever">' Information was hidden for personal reason !'</span></center>
+
+                            <div class="ui-g-7 calc-left"><span style="float: left;margin-top: 5px;">' Information was hidden for personal reason !'</span>
+                            </div>
+                            <div class="ui-g-5"> <span id="sotien" style="font-weight: 600;margin-top: 5px;float: left;font-size: 15px">' Information was hidden for personal reason !'</span></div>
+
+                            <div class="ui-g-12"><span style="float: left;font-size: 13px">000</span> <span style="float: right;;font-size: 13px">0000</span></div>
+                            <div class="ui-g-12"> <span id="mMoney" style="font-weight: 600"></span></div>
+                            <div class="slidecontainer" style="margin-top: -20px">
+                                <input type="range" min="1" max="10" value="1" class="slider" id="rMoney">
+                            </div>
+
+                            <div class="ui-g-7 calc-left"><span style="float: left;margin-top: 5px;">' Information was hidden for personal reason !'</span>
+                            </div>
+                            <div class="ui-g-5 calc-right"> <span id="thoihan" style="font-weight: 600;margin-top: 5px;float: left;font-size: 15px">' Information was hidden'</span> </div>
+
+                            <div class="ui-g-12"><span style="float: left;font-size: 13px">00000</span> <span style="float: right;font-size: 13px"> ' Information was hidden for personal reason !'</span></div>
+                            <div class="ui-g-12 calc-right"> <span id="mTime" style="font-weight: 600"></span></div>
+                            <div class="slidecontainer" style="margin-top: -20px">
+                                <input type="range" min="1" max="6" value="1" class="slider" id="rTime">
+                            </div>
+
+                            <div class="ui-g-7 calc-left"><span style="float: left;margin-top: 5px;font-size: 14px" id="tbsotientra">' Information was hidden for personal reason !'</span></div>
+                            <div class="ui-g-5"><span id="sotientramoithang" style="font-weight: 600;margin-top: 5px;float: left;font-size: 15px">0 000 0000</span></div>
+
+                            <div class="ui-g-7 calc-left"><span style="float: left; font-size: 14px" id="tbngaytradautien">' Information was hidden for personal reason !'</span></div>
+                            <div class="ui-g-5"><span id="ngaytradautien" style="font-weight: 600;float: left;font-size: 15px"></span></div>
+
+
+                            <div class="ui-g-7 calc-left"><span style="float: left;" id=""></span></div>
+                            <div class="ui-g-5"><a href="" id="lichtra" style="margin-top: -10px;float: left;font-size: 13px;color: white; text-decoration: underline;">' Information was hidden for personal reason !'</a></div>
+
+
+                            <div class="ui-g-12 calc-left">
+                                <p style="font-size:13px;" id="tbuser">' Information was hidden for personal reason !'</p>
+                            </div>
+
+
+
+                            <a href="form.html"  class="ui-g-12 mbutton-register" style="width: 100%; height: 60px;">
+                                <div style="width: fit-content;width: -moz-max-content;width: -webkit-max-content;margin: 0 auto;">
+                                    <span style="padding-top:10px;float: right;">' Information was hidden!'</span>
+                                </div>
+                            </a>
+
+                        </div>
+
+                    </form>
+
+
+                </div>
+                <div class="ui-g-12" style="margin-top: 25px" align="center"><span class="scroll down"></span></div>
+
+                
+                <span class="ui-g-12" data-aos="fade-up"><h1>' Information was hidden for personal reason !'</h1><p>' Information was hidden for personal reason !'</p></span>
+
+                <ul class="ui-g-12 registr-stages__list" data-aos="fade-up">
+
+                    <div class="registr-stages__items" data-aos="fade-up">
+                         <img src="https://i.imgur.com/3GbNFDi.png" alt="" width="100" height="80"; style="margin-bottom: 16px">
+                            <div class="registr-stages__title">' Information was hidden for personal reason !' </div>
+                            <p>' Information was hidden for personal reason !'.</p>
+                       
+                    </div>
+
+
+                    <div class="registr-stages__items" data-aos="fade-up">
+                        <img src="https://i.imgur.com/uH159hE.png" alt="" width="100" height="80"; style="margin-bottom: 16px">
+                            <div class="registr-stages__title">' Information was hidden for personal reason !'</div>
+                            <p>' Information was hidden for personal reason !'</p>
+                    </div>
+
+                    <div class="registr-stages__items" data-aos="fade-up">
+                        <img src="https://i.imgur.com/VtRktQL.png" alt="" width="100" height="80"; style="margin-bottom: 16px">
+                            <div class="registr-stages__title">' Information was hidden for personal reason !'</div>
+                            <p>' Information was hidden for personal reason !'</p>
+                    </div>
+                    <div class="registr-stages__items registr-stages__items--inverse" data-aos="fade-up">
+                        <img src="https://i.imgur.com/t7VKbHQ.png" alt="" width="100" height="80"; style="margin-bottom: 16px">
+                            <div class="registr-stages__title">' Information was hidden for personal reason !'</div>
+                            <p>' Information was hidden for personal reason !'</p>
+                    </div>
+                </ul>
+
+
+
+                <span class="ui-g-12" data-aos="fade-up"><h1>' Information was hidden for personal reason !'</h1><p> ' Information was hidden for personal reason !'</span>
+
+                <div class="ui-g-12 ui-lg-7" data-aos="fade-up">
+                    <div id="laptop-panel">
+                      <iframe src="https://www.youtube.com/embed/CRTJW3GLU1w?autoplay=1&amp;autohide=1&amp;rel=0" allowfullscreen="" style="width: 100%; height: 100%;" frameborder="0"></iframe>
+                    </div>
+                </div>
+
+                    <div id="introduction" class="ui-g-12 ui-lg-5" data-aos="fade-up">
+                        <h2>' Information was hidden for personal reason !'</h2><p>' Information was hidden for personal reason !'</p><p>' Information was hidden for personal reason !'.</p><p>' Information was hidden for personal reason !'' Information was hidden for personal reason !'</p><p>' Information was hidden for personal reason !'</p><p>' Information was hidden for personal reason !'' Information was hidden for personal reason !'' Information was hidden for personal reason !'</p><h2>' Information was hidden for personal reason !'</h2><p>' Information was hidden for personal reason !'' Information was hidden for personal reason !'' Information was hidden for personal reason !'' Information was hidden for personal reason !'' Information was hidden for personal reason !'</p><h2>' Information was hidden for personal reason !'</h2></p>
+                    </div>
+
+                   
+
+
+                <span class="ui-g-12" data-aos="fade-up"><h1>' Information was hidden for personal reason !'</h1><p>' Information was hidden for personal reason !'</p></span>
+
+
+
+                <ul class="ui-g-12 registr-stages__list" data-aos="fade-up">
+
+                    <div class="registr-menu__items" data-aos="fade-up">
+                        <img src="images/icons_card.png" alt="' Information was hidden for personal reason !'"; style="margin-bottom: 16px">
+                            <div class="registr-stages__title">' Information was hidden for personal reason !'</div>
+                            <p>' Information was hidden for personal reason !'</p>
+
+                    </div>
+
+
+                    <div class="registr-menu__items" data-aos="fade-up">
+                        <img src="images/icon-phone.svg" alt="' Information was hidden for personal reason !'"; style="margin-bottom: 16px">
+                            <div class="registr-stages__title">' Information was hidden for personal reason !'</div>
+                            <p>' Information was hidden for personal reason !'</p>
+                    </div>
+
+                    <div class="registr-menu__items" data-aos="fade-up">
+                        <img src="images/icon-docs.svg" alt="' Information was hidden for personal reason !'"; style="margin-bottom: 16px">
+                            <div class="registr-stages__title">' Information was hidden for personal reason !'</div>
+                            <p>' Information was hidden for personal reason !'</p>
+                    </div>
+
+                    <div class="registr-menu__items" data-aos="fade-up">
+                        <img src="images/icon-fb.svg" alt="' Information was hidden for personal reason !'"; style="margin-bottom: 16px">
+                            <div class="registr-stages__title">' Information was hidden for personal reason !'</div>
+                            <p>' Information was hidden for personal reason !'.</p>
+                    </div>
+                </ul>
+
+
+
+
+                <span class="ui-g-12" data-aos="fade-up"><h1>' Information was hidden for personal reason !'</h1><p> ' Information was hidden for personal reason !'</p></span>
+
+
+                <div class="ui-g-12 ui-lg-7" data-aos="fade-up">
+
+                    <div class="registr-menu__items" id="payment1" style="border-right: none; cursor: pointer;">
+                        <img src="https://i.imgur.com/ysmddhM.png" alt=""; style="margin-bottom: 16px;">
+                            <div class="registr-stages__title">' Information was hidden for personal reason !'</div>
+                    </div>
+
+                </div>
+
+                <div class="ui-g-12 ui-lg-5" data-aos="fade-up">
+
+                    <div class="registr-menu__items" id="payment2" style="border-right: none;cursor: pointer;">
+                        <img src="https://i.imgur.com/76Ap48C.png" alt=""; style="margin-bottom: 16px;">
+                            <div class="registr-stages__title">' Information was hidden for personal reason !'</div>
+                            <p></p>
+                    </div>
+
+                </div>
+
+
+                <a href="form.html"  class="ui-g-12 mbutton-register" data-aos="fade-up" style="width: 100%; height: 60px;margin-bottom: 50px">
+                    <div style="width: fit-content;width: -moz-max-content;width: -webkit-max-content;margin: 0 auto;">
+                        <span style="padding-top:10px;float: right;">' Information was hidden for personal reason !'</span>
+                    </div>
+                </a>
+
+                
+                <div class="ui-g-12 ui-lg-7" data-aos="fade-up">
+                    <p class="ui-g-12" data-aos="fade-up"><h1>' Information was hidden for personal reason !'<span style="font-weight: normal;">' Information was hidden for personal reason !'</span> VTG</h1><p> ' Information was hidden for personal reason !'' Information was hidden for personal reason !'' Information was hidden for personal reason !'' Information was hidden for personal reason !'' Information was hidden for personal reason !'' Information was hidden for personal reason !'</p></p>
+
+                    <strong>' Information was hidden for personal reason !'</strong>
+
+                    <div class="row">
+                     <div class="ui-g-12 ui-lg-5" >
+                         <img style="border: 1px solid #fff; padding: 10px" alt="" data-src="/qr-code.png" src="images/qr-code.png" lazy="loaded" width="180" height="180">
+                     </div>
+                     <div class="ui-g-12 ui-lg-7" id="store">
+                         <div class="row">
+                             <a href="#"><img alt="Google Play" data-src="images/google-play.svg" src="https://i.imgur.com/CUWc8yI.png" lazy="loaded" width="180" height="56"></a>
+                             <a href="#"><img alt="App Store" data-src="images/apple-store.svg" src="https://i.imgur.com/vynCwlL.png" lazy="loaded" width="180" height="56"></a>
+                         </div>
+                     </div>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-lg-5" data-aos="fade-up">
+
+                    <div class="registr-menu__items" style="border-right: none;">
+                        <img src="https://i.imgur.com/0SEi2GK.png" alt=""; style="width: 100%;height: auto;">
+                    </div>
+
+                </div>
+
+
+                
+                <div class="ui-g-12" align="center" style="margin-top: 30px" data-aos="fade-up"><span  onclick="topFunction()" class="scroll up" style="cursor: pointer;"></span></div>
+
+                <div class="ui-g-12" style="font-size: 13px;">
+                    <br>
+                    <hr style="border-color: #78b4e650;margin-bottom: 20px;" />
+                    <span class="footer-text-left">
+                        <span style="font-size: 13px;">' Information was hidden for personal reason !' </span>
+                        <br />
+                        <span style="font-size: 13px;text-align: justify;">Vui lòng đọc kĩ các <a href="' Information was hidden for personal reason !'" target="_blank"> <span style="color: #6bfa32">Chính sách Bảo mật</span></a> và <a href="' Information was hidden for personal reason !'" target="_blank"><span style="color: #6bfa32">Điều Khoản & Điều kiện Sử Dụng</span> </a> của chúng tôi. Mọi thắc mắc xin vui lòng xem hướng dẫn <a href="help.html"> <span style="color: #6bfa32">tại đây</span></a> hoặc liên hệ trực tiếp qua địa chỉ email:<a href="mailto:hotrovtgonline@gmail.com"> <span style="color: #6bfa32">' Information was hidden for personal reason !'</span>.</a> </span>
+                    </span>
+                    <span class="footer-text-right">
+                        <span></span>
+                    </span>
+                </div>
+
+
+
+            </div>
+
+
+        <div id="container-floating" style="display: none;">
+
+          <a class="nd7 nds" href="help.html" target="_blank"></a>
+          <a class="nd5 nds" href="tel:000000"></a>
+          <a class="nd3 nds" href="https://zalo.me/000000" target="_blank"></a>
+          <a class="nd1 nds" href="' Information was hidden for personal reason !'" target="_blank"></a>
+
+        </div>
+
+        <img id="notification-button" src="https://i.imgur.com/QMS1sgU.gif" style="display: none;">
+
+        <img id="floating-button" src="https://livechat.chat24.io/images/widget/roll/icons/R2-4_red.gif">
+
+              
+
+           
+         <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true"> <div class="modal-dialog"> <div class="modal-content"> <form id="loginForm" method="POST"> <div class="modal-header"> <h2 class="modal-title" id="loginModalLabel" style="color: #1b8654">Đăng Nhập Tài Khoản</h2> </div> <div class="modal-body"> <div class="form-group"> <label for="recipient-name" class="control-label" style="color: #1b8654;font-weight: 600">Số Điện Thoại:</label> <br> <input style="width: 50%; margin-top: 10px" type="tel" class="form-control" id="userPhoneLogin" maxlength="10"> </div> <br> <span style="color: grey; font-size: 16px">Bằng việc nhấn vào nút Đăng nhập bên dưới, bạn cam kết rằng, bạn đã đọc, hiểu và đồng ý với nội dung của <a href="' Information was hidden for personal reason !'" target="_blank"><span style="color: #1b8654">Điều khoản & Điều kiện Sử dụng</span></a> và <a href="' Information was hidden for personal reason !'" target="_blank"> <span style="color: #1b8654">Chính sách Bảo mật</span></a> của VTG Online. </span> </div> <div class="modal-footer "> <button class="close mbutton" data-dismiss="modal"><span aria-hidden="true">Đóng</span></button> <button class="mbutton" id="doLogin">Đăng Nhập</button> </div> </form> </div> </div> </div>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <script type="text/javascript">
+
+
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+         
+          if (n > slides.length) {slideIndex = 1}
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";
+          }
+          
+          slides[slideIndex-1].style.display = "block";
+        } 
+
+
+
+        var output0 = document.getElementById("lever");
+
+        var slider1 = document.getElementById("rMoney");
+        var output1 = document.getElementById("sotien");
+        var slider2 = document.getElementById("rTime");
+        var output2 = document.getElementById("thoihan");
+        var output3 = document.getElementById("sotientramoithang");
+
+
+
+        slider1.oninput = function() {
+            output1.innerHTML = this.value + ' 000 000đ';
+            output3.innerHTML = tientra(this.value, slider2.value) + 'đ';
+            output3.value = tientra(this.value, slider2.value);
+            output2.innerHTML = slider2.value + ' tháng';
+
+
+            if (this.value < 3) {
+
+              output0.innerHTML = 'Lần đầu có thể vay';
+
+              
+            } else {
+
+              output0.innerHTML = 'Lần sau có thể vay';
+
+            } 
+
+        }
+        slider2.oninput = function() {
+            output2.innerHTML = this.value + ' tháng';
+            output3.innerHTML = tientra(slider1.value, this.value) + 'đ';
+            output3.value = tientra(slider1.value, this.value);
+
+        }
+
+        
+        slider1.value = 1;
+        slider2.value = 1;
+        output3.value = '1 080 000';
+
+
+        function tientra(sotien, sothang) {
+            var rs = (1000 * ((sotien / sothang) + (sotien * 0.08)));
+            return Math.round(rs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + ' 000';
+        }
+
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+    </script>
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+
+        var flag = true;
+        var btn  = document.getElementById('floating-button'); 
+        var menu = document.getElementById('container-floating');
+
+        btn.onclick = function(e) {
+            e.stopPropagation();
+            if (flag) { menu.style.display ='block';flag = false} else {menu.style.display ='none'; flag = true};
+        };
+
+        $(window).click(function() {flag = true;menu.style.display ='none'});
+
+    });
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 5000);    
+}
+</script>
+
+<script>AOS.init({duration: 1500,});</script>
+
+</body>
+
+</html>
+
+

@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link type="text/css" rel="stylesheet" href="css/simpleSnackbar.css" />
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script src="js/simpleSnackbar.js"></script>
+    <title>File Reader</title>
+</head>
+
+<body>
+    
+    <div>
+        <input type="file">
+        <br>
+        <input type="button" class="click-me" id="btCopy" value="Copy all">
+
+        <p id="list"></p>
+    </div>
+
+    
+</body>
+</html>
+
+
+<style type="text/css">
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+     
+    textarea {
+        margin-top: 15px;
+        width: 50%;
+    }
+</style>
+
+<script type="text/javascript">
+    let input = document.querySelector('input');
+
+    input.addEventListener('change', () => {
+
+    document.getElementById('list').innerHTML = '';
+
+    let files = input.files;
+
+    if (files.length == 0) return;
+
+    const file = files[0];
+
+    let reader = new FileReader();
+
+    reader.onload = (e) => {
+        const file = e.target.result;
+        const lines = file.split(/\r\n|\n/);
+
+        for (var line = 0; line < lines.length - 1; line++) {
+
+            $('#list').append('<a target="_blank" href ="https://facebook.com/' + lines[line] + '">https://facebook.com/' + lines[line] + '?i=' + line + '</a> <br>');
+        }
+    };
+
+    reader.onerror = (e) => alert(e.target.error.name);
+
+    reader.readAsText(file);
+
+});
+</script>
+
+<script type="text/javascript">
+ function selectText(node) {
+    node = document.getElementById(node);
+
+    if (document.body.createTextRange) {
+        const range = document.body.createTextRange();
+        range.moveToElementText(node);
+        range.select();
+        var ok = document.execCommand('copy');
+        if (ok) new simpleSnackbar('Copied!', {autohide: true,}).show(); 
+        else new simpleSnackbar('Unable to copy!', {autohide: true,}).show(); 
+    } else if (window.getSelection) {
+        const selection = window.getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(node);
+        selection.removeAllRanges();
+        selection.addRange(range);
+        var ok = document.execCommand('copy');
+
+        if (ok) new simpleSnackbar('Copied!', {autohide: true,}).show(); 
+        else new simpleSnackbar('Unable to copy!', {autohide: true,}).show(); 
+
+    } else {
+        console.warn("Unsupported browser.");
+    }
+
+
+
+}
+
+const clickable = document.querySelector('.click-me');
+clickable.addEventListener('click', () => selectText('list'));
+
+</script>

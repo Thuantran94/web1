@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="vn-VN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <title>' Information was hidden for personal reason !'</title>
+ 
+
+    <link type="text/css" rel="stylesheet" href="css/components.css" />
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/datetimepicker.css" type="text/css" media="all" />
+    <link type="text/css" rel="stylesheet" href="css/simpleSnackbar.css" />
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+    <script type="text/javascript" src="https://firebasestorage.googleapis.com/v0/b/vtgonl.appspot.com/o/JavaScript%2FRoboto-Medium-normal.js?alt=media&token=b0997753-052a-4a2b-9d0f-cdbbf256d9eb"></script>
+    <script type="text/javascript" src="https://firebasestorage.googleapis.com/v0/b/vtgonl.appspot.com/o/JavaScript%2FRoboto-Light-normal.js?alt=media&token=4054ffc7-825a-47e9-8b43-ebe0d3b7c29b"></script>
+    <script type="text/javascript" src="https://firebasestorage.googleapis.com/v0/b/vtgonl.appspot.com/o/JavaScript%2Fsigned.js?alt=media&token=83b61a45-d025-4eaf-82aa-d5677613a3f5"></script>
+    
+    
+    <script src="https://firebasestorage.googleapis.com/v0/b/vtgonl.appspot.com/o/JavaScript%2Fdatetimepicker.js?alt=media&token=2f299c71-64b7-4d73-a68f-6c7d5f2e7761"></script>
+
+    <script src="https://firebasestorage.googleapis.com/v0/b/vtgonl.appspot.com/o/JavaScript%2FsimpleSnackbar.js?alt=media&token=0f4d05c4-f642-48bd-aa68-728742c75724"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.3.3"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+    <script type="text/javascript" src="js/mfb.js"></script>
+
+    <script type="text/javascript" src="js/form.js"></script>
+    <script type="text/javascript" src="js/contract.js"></script>
+    <script type="text/javascript" src="js/bill.js"></script>
+</head>
+
+
+<style type="text/css">
+    
+
+
+.hide {
+  display: none;
+}
+
+i{
+    margin: 10px;
+}
+
+
+</style>
+
+
+
+
+<div id="loader"><img src="images/loader.svg" width="28" /></div>
+<div id="check_otp"></div>
+<div id="check_otp_login"></div>
+<body style="display: flex; ">
+
+    <div class="container">
+    
+        <br>
+        <p style="font-size: 12px">Để tránh phát sinh lỗi trong quá trình đăng ký vui lòng sử dụng <a target="_blank" href="https://play.google.com/store/apps/details?id=com.android.chrome">Chrome</a> hoặc <a target="_blank" href="https://play.google.com/store/apps/details?id=com.opera.mini.native">Opera</a> để truy cập website!</p>
+        <div align="center" class="form-title-center" style=""><a href="index.html" style="color: #229954">VTG ONLINE</a></div>
+
+        <div align="left" class="form-title-left">' Information was hidden for personal reason !'</div>
+        <div align="right" class="form-title-right" style="margin-top: -95px"><a href="index.html" style="color: #229954">VTG ONLINE</a></div>
+
+
+        <div class="form-outer">
+            <form action="#">
+
+                <div class="page slide-page">
+
+		        <div align="left" class="section">' Information was hidden for personal reason !'</div>
+		        <div align="left" class="subsection">I. ' Information was hidden for personal reason !'</div>
+		        <div align="left" class="subsubsection">1. Thông tin cá nhân</div>
+
+
+
+                    <div class="field">
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="label">Họ và tên<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <input id="user_name" required='' type='text' placeholder="Nguyễn Văn A">
+                                    <i class=" fa fa-exclamation-circle" id="check_user_name"></i>
+                                </span>
+                            </div>
+
+                             <div class="col-2">
+                                <div class="label">Số CMND<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <input id="user_cmnd" required='' type='tel' maxlength="12">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="row">
+
+                             <div class="col-2">
+                                <div class="label">Ngày sinh<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <input id="user_date_of_birth" required='' type='text'>
+                                </span>
+                            </div>
+
+                            <div class="col-2">
+                                <div class="label">Giới tính<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <input id="user_gender" required='' type='text' list="genders">
+                                    <datalist id="genders">
+                                        <option>Nam</option>
+                                        <option>Nữ</option>
+                                    </datalist>
+                                </span>
+                            </div>
+
+                           
+                        </div>
+                    </div>
+
+
+                    <div class="field">
+                        <div class="row">
+                           
+                            <div class="col-2">
+                                <div class="label">Tình trạng hôn nhân<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <input id="user_status" required='' type='text' list="statuses">
+                                    <datalist id="statuses">
+                                        <option>Độc thân</option>
+                                        <option>Đã kết hôn</option>
+                                        <option>Đã ly hôn</option>
+                                        <option>Đã ly thân</option>
+                                    </datalist>
+                                </span>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                    <div class="field">
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="label">Thành phố<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <input id="user_province" required='' type='text' list="provinces">
+                                    <datalist id="provinces">
+                                        <option value="Tp. Hồ Chí Minh">Tp. Hồ Chí Minh</option>
+                                        <option value="Long An">Long An</option>
+                                    </datalist>
+                                </span>
+                            </div>
+                            <div class="col-2">
+                                <div class="label">Quận/Huyện<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <input id="user_village" required='' type='text' list="villages">
+                                    <datalist id="villages"> </datalist>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="label">Địa chỉ hiện tại<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <input id="user_address" required='' type='text'>
+                                </span>
+                            </div>
+                            <div class="col-2">
+                                <div class="label">Thời gian cư trú<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <input id="user_lifetime" required='' type='text' list="lifetimes">
+                                    <datalist id="lifetimes">
+                                        <option>Dưới 1 năm</option>
+                                        <option>Từ 1 đến 3 năm</option>
+                                        <option>Từ 3 đến 5 năm</option>
+                                        <option>Từ 5 đến 10 năm</option>
+                                        <option>Trên 10 năm</option>
+                                    </datalist>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="field">
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="label">Số ĐTDĐ<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <input id="user_phone" required='' type='tel' maxlength="10" >
+                                    <i class=" fa fa-exclamation-circle" id="check_user_phone"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-2">
+                                <div class="label">Email<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <input id="user_email" required='' type='email'>
+                                    <i class=" fa fa-exclamation-circle" id="check_email"></i>
+                                </span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div align="left" class="subsubsection">2. Thông tin học vấn và việc làm</div>
+
+ 					 <div class="field">
+                        <div class="row">
+                           
+
+                             <div class="col-2">
+                              <div class="label">Trình độ học vấn<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <select id="user_edu">
+                                        <option value="12/12">12/12</option>
+                                        <option value="Cao đẳng">Tốt nghiệp Cao Đẳng</option>
+                                        <option value="Đại học">Tốt nghiệp Đại Học</option>
+                                    </select>
+                                </span>
+                            </div>
+
+                            <div class="col-2">
+                              <div class="label">Nghề nghiệp<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <select id="user_job">
+                                         <option value="Kinh doanh tự do">Kinh doanh tự do</option>
+                                        <option value="Công nhân">Công nhân</option>
+                                        <option value="NV văn phòng">Nhân viên văn phòng</option>
+                                        <option value="NV nhà nước">Nhân viên nhà nước</option>
+                                        <option value="Học sinh/Sinh Viên">Học sinh/Sinh viên</option>
+                                        <option value="Nội trợ">Nội trợ</option>
+                                        <option value="Về hưu">Về hưu</option>
+                                    </select>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="row">
+                            
+
+                             <div class="col-2">
+                               <div class="label">Lương/thu nhập chính<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <select id="user_salary">
+                                       <option value="1 - 3tr /tháng">1 - 3 triệu /tháng</option>
+                                        <option value="3 - 5tr /tháng">3 - 5 triệu /tháng</option>
+                                        <option value="5 - 8tr /tháng">5 - 8 triệu /tháng</option>
+                                        <option value="8 - 12tr /tháng">8 - 12 triệu /tháng</option>
+                                        <option value="Trên 12tr /tháng">Trên 12 triệu /tháng</option>
+                                    </select>
+                                </span>
+                            </div>
+
+                            <div class="col-2">
+                                <div class="label">Tên công ty</div>
+                                <span style="display: flex;">
+                                    <input id="user_company_name" required='' type='text'>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="label">Địa chỉ công ty</div>
+                                <span style="display: flex;">
+                                    <input id="user_company_address" required='' type='text'>
+                                </span>
+                            </div>
+                            <div class="col-2">
+                                <div class="label">Số điện thoại</div>
+                                <span style="display: flex;">
+                                    <input id="user_company_phone" required='' maxlength="10" type='tel'>
+                                    <i class=" fa fa-exclamation-circle" id="check_company_phone"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div align="left" class="subsubsection">' Information was hidden for personal reason !'</div>
+
+                    <div class="field">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="label">Họ và tên 1<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <input id="relation_name1" required='' type='text' >
+                                    <i class=" fa fa-exclamation-circle" id="check_relation_name1"></i>
+                                </span>
+                            </div>
+                            <div class="col-3">
+                                <div class="label">Mối quan hệ<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <input id="relation_rela1" required='' type='text' list="relations" >
+                                    <datalist id="relations">
+                                        <option>Cha/Mẹ</option>
+                                        <option>Vợ/Chồng</option>
+                                        <option>Anh/Chị/Em</option>
+                                    </datalist>
+                                </span>
+                            </div>
+                            <div class="col-3">
+                                <div class="label">Số ĐTDĐ<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <input id="relation_phone1" required='' type='tel' maxlength="10">
+                                    <i class=" fa fa-exclamation-circle" id="check_relation_phone1"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="label">Họ và tên 2<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <input id="relation_name2" required='' type='text'>
+                                    <i class=" fa fa-exclamation-circle" id="check_relation_name2"></i>
+                                </span>
+                            </div>
+                            <div class="col-3">
+                                <div class="label">Mối quan hệ<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <input id="relation_rela2" required='' type='text' list="relations">
+                                    <datalist id="relations">
+                                        <option>Cha/Mẹ</option>
+                                        <option>Vợ/Chồng</option>
+                                        <option>Anh/Chị/Em</option>
+                                    </datalist>
+                                </span>
+                            </div>
+                            <div class="col-3">
+                                <div class="label">Số ĐTDĐ<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <input id="relation_phone2" required='' type='tel' maxlength="10">
+                                    <i class=" fa fa-exclamation-circle" id="check_relation_phone2"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div align="left" class="subsection">' Information was hidden for personal reason !'</div>
+                    <div align="left" class="sentence"><p>' Information was hidden for personal reason !' <a href="' Information was hidden for personal reason !'" target="_blank">' Information was hidden for personal reason !'</a>, ' Information was hidden for personal reason !'</p></div>
+
+
+                    <div align="left" class="subsubsection">' Information was hidden for personal reason !' </div>
+
+
+
+                        <div class="field">
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="label">' Information was hidden for personal reason !'<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <input required='' type="tel"id="sotien" placeholder="' Information was hidden for personal reason !'" maxlength="8" style="color: #229954">
+                                    <i class=" fa fa-exclamation-circle" id="check_sotien"></i>
+                                </span>
+
+                            </div>
+                            <div class="col-2">
+                                <div class="label">' Information was hidden for personal reason !'<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <input type="tel"id="kyhan"placeholder="1 tháng" maxlength="1" style="color: #229954 ">
+                                    <i class=" fa fa-exclamation-circle" id="check_kyhan"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                   
+                    <div align="left" class="sentence" style="margin-top: -40px"><p>' Information was hidden for personal reason !'</p></div>
+
+
+                     
+                    <div align="left" class="subsubsection">' Information was hidden for personal reason !'</div>
+
+
+                    <div class="field">
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="label">' Information was hidden for personal reason !'</div>
+                                <span style="display: flex;">
+                                    <input type="text"id="sotientramoithang"placeholder="0 VNĐ" style="pointer-events: none">
+                                </span>
+                            </div>
+
+                            <div class="col-2">
+                                <div class="label">' Information was hidden for personal reason !'</div>
+                                <span style="display: flex;">
+                                    <input type="text" id="phidichvu" placeholder="0 VNĐ" style="pointer-events: none">
+                                   
+                                </span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div align="left" class="sentence" style="margin-top: -40px"><p>' Information was hidden for personal reason !'</p></div>
+
+
+                    <div align="left" class="subsubsection">' Information was hidden for personal reason !'</div>
+
+
+                    <div class="field">
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="label">' Information was hidden for personal reason !'<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <select id="baohiem">
+                                      <option value="Gói Vàng">' Information was hidden for personal reason !'</option>
+                                      <option value="Gói Bạch Kim">' Information was hidden for personal reason !'</option>
+                                    </select>
+                                </span>
+                            </div>
+
+                            <div class="col-2" id="check_baohiem" style="display: none;">
+                                <div class="label">Hình thức thanh toán<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <select id="ttbaohiem">
+                                      <option value=' Information was hidden for personal reason !'>' Information was hidden for personal reason !'</option>
+                                      <option value="' Information was hidden for personal reason !'">' Information was hidden for personal reason !'</option>
+                                    </select>
+                                </span>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+
+                    <div align="left" class="sentence" style="margin-top: -40px"><p>' Information was hidden for personal reason !'</p></div>
+
+
+
+                    <div align="left" class="subsubsection">4.' Information was hidden for personal reason !'</div>
+
+                    <div align="left" class="sentence"><p>' Information was hidden for personal reason !'</p></div>
+
+
+
+
+                    <div class="field">
+                        <div class="row">
+
+                            <div class="col-2">
+                                <div class="label">Ngân hàng<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <select id="bank_name">
+                                        <option value="ACB">Ngân hàng Á Châu - ACB</option>
+                                        <option value="ABBank">Ngân hàng An Bình - ABBank</option>
+                                        <option value="Agribank">Ngân hàng NN&PT Nông thôn VN - Agribank</option>
+                                        <option value="BacABank">Ngân hàng Bắc Á - BacABank</option>
+                                        <option value="BAOVIET Bank">Ngân hàng Bảo Việt - BAOVIET Bank</option>
+                                        <option value="BIDV">Ngân hàng Đầu tư và Phát triển VN - BIDV</option>
+                                        <option value="Đông Á - DAB">Ngân hàng Đông Á - DAB</option>
+                                        <option value="HDBank">Ngân hàng Phát triển TPHồ Chí Minh - HDBank</option>
+                                        <option value="HSBC">Ngân hàng HSBC Việt Nam - HSBC</option>
+                                        <option value="NamABank">Ngân hàng Nam Á - NamABank</option>
+                                        <option value="Sacombank">Ngân hàng Sài Gòn Thương Tín - Sacombank</option>
+                                        <option value="SAIGONBANK">Ngân hàng Sài Gòn Công Thương - SAIGONBANK</option>
+                                        <option value="SCB">Ngân hàng Sài Gòn - SCB</option>
+                                        <option value="SeABank">Ngân hàng Đông Nam Á - SeABank</option>
+                                        <option value="Techcombank">Ngân hàng Kỹ Thương - Techcombank</option>
+                                        <option value="TPBank">Ngân hàng Tiên Phong - TPBank</option>
+                                        <option value="Vietcombank">Ngân hàng Ngoại Thương - Vietcombank</option>
+                                        <option value="VietinBank">Ngân hàng Công thương Việt Nam - VietinBank</option>
+                                        <option value="VIB">Ngân hàng Quốc Tế - VIB</option>
+                                        <option value="Viet Capital Bank">Ngân hàng Bản Việt - Viet Capital Bank</option>
+                                        <option value="VPBank">Ngân hàng Việt Nam Thịnh Vượng - VPBank</option>
+                                    </select>
+                                </span>
+                            </div>
+
+
+                            <div class="col-2">
+                                <div class="label">Tên tài khoản<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <input id="bank_user_name" required='' type='text'>
+                                    <i class=" fa fa-exclamation-circle" id="check_bank_user_name"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="label">Số tài khoản<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <input id="bank_user_number" required='' maxlength="16" type='tel'>
+                                </span>
+                            </div>
+                            <div class="col-2">
+                                <div class="label">Chi nhánh</div>
+                                <span style="display: flex;">
+                                    <input id="bank_user_address" required='' type='text'>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div align="left" class="subsubsection">5. ' Information was hidden for personal reason !'</div>
+
+                     <div class="field">
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="label">' Information was hidden for personal reason !'<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <input id="user_goad" required='' type='text' list="user_goads"> <datalist id="user_goads">
+                                        <option>' Information was hidden for personal reason !'</option>
+                                        <option>' Information was hidden for personal reason !'</option>
+                                        <option>' Information was hidden for personal reason !'</option>
+                                        <option>' Information was hidden for personal reason !'</option>
+                                        <option>' Information was hidden for personal reason !'</option>
+                                        <option>' Information was hidden for personal reason !'</option>
+                                    </datalist>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="label">Ghi chú thêm<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <input id="kehoachtra" type="text" placeholder="' Information was hidden for personal reason !'..."></input>
+                                </span>
+                            </div>
+                            <div class="col-2">
+                                <div class="label">' Information was hidden for personal reason !'<span style="color: red">*</span></div>
+                                <span style="display: flex;">
+                                    <input id="facebook" type="url" placeholder="' Information was hidden for personal reason !'"></input>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div align="left" class="sentence"> ' Information was hidden for personal reason !'.</div>
+
+
+
+
+                    <div class="field btns">
+                        <button class="prev-0 prev" id="cancle" >Hủy</button>
+                        <button class="firstNext next">Tiếp tục</button>
+                    </div>
+
+                    <div align="left" ; style="margin: 10px">
+                        <div class="ui-g-12" style="font-size: 12px;text-align: justify;">
+                            <hr style="border-color: #78b4e650;margin-bottom: 20px;" /> <span class="footer-text-left">' Information was hidden for personal reason !'. <br />
+                               </span>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+
+                <div class="page">
+
+                	 <div align="left" class="section">B. ' Information was hidden for personal reason !' <span id="shd"> </span></div>
+
+
+                	<div align="left" class="sentence" style="margin-top: 20px"><p>' Information was hidden for personal reason !' <span id="date"></span>, ' Information was hidden for personal reason !' <span id="place"></span>. ' Information was hidden for personal reason !'</p></div>
+
+                	<div align="left" class="subsection">1.' Information was hidden for personal reason !'</div> 
+                	 
+
+                	 <div class="ui-g sentence" align = "left" > <div class="ui-g-3 calc-left">' Information was hidden for personal reason !':</div><div class="ui-g-9 calc-right"> <strong>' Information was hidden for personal reason !'</strong> </div>
+                    </div>
+                    <div class="ui-g sentence" align = "left" > <div class="ui-g-3 calc-left">Website</div><div class="ui-g-9 calc-right"> <a href="index.html" > ' Information was hidden for personal reason !'</a> hoặc <a href="index.html" > ' Information was hidden for personal reason !'</a> </div>
+                    </div>
+                    <div class="ui-g sentence" align = "left" > <div class="ui-g-3 calc-left">' Information was hidden for personal reason !'</div><div class="ui-g-9 calc-right"> </div>
+                    </div>
+                    <div class="ui-g sentence" align = "left" > <div class="ui-g-3 calc-left">' Information was hidden for personal reason !'</div><div class="ui-g-9 calc-right"> </div>
+                    </div>
+
+                    <div align="left" class="subsection">' Information was hidden for personal reason !'</div> 
+
+                    <div align="left" class="sentence"><p>Ông/Bà: <strong id="namehd"></strong> ' Information was hidden for personal reason !'.</p></div>
+
+
+                    <div align="left" class="sentence" style="margin-top: 20px"><p>' Information was hidden for personal reason !'</p></div>
+
+                    <div align="left" class="subsubsection">' Information was hidden for personal reason !'</div> 
+                    <div align="left" class="sentence"><p>' Information was hidden for personal reason !' <strong id="sotienhd"></strong> </p></div>
+                    <div align="left" class="sentence"><p>' Information was hidden for personal reason !' <strong id="sotienbchd"></strong> </p></div>
+
+                    <div align="left" class="subsubsection">' Information was hidden for personal reason !'</div> 
+                    <div align="left" class="sentence"><p>' Information was hidden for personal reason !' <strong id="mucdichvayhd"></strong> </p></div>
+
+                    <div align="left" class="subsubsection">' Information was hidden for personal reason !'</div> 
+                    <div align="left" class="sentence"><p>-' Information was hidden for personal reason !'</p></div>
+
+                     
+                    <div class="ui-g sentence" align = "left" > <div class="ui-g-3 calc-left">' Information was hidden for personal reason !':</div><div class="ui-g-9 calc-right"> <strong id="banknumhd"></strong> </div>
+                    </div>
+                    <div class="ui-g sentence" align = "left" > <div class="ui-g-3 calc-left">' Information was hidden for personal reason !'</div><div class="ui-g-9 calc-right"> <strong id="bankusernamehd"></strong> </div>
+                    </div>
+                    <div class="ui-g sentence" align = "left" > <div class="ui-g-3 calc-left">T' Information was hidden for personal reason !'</div><div class="ui-g-9 calc-right"> <strong id="banknamehd"></strong> </div>
+                    </div>
+                    <div class="ui-g sentence" align = "left" > <div class="ui-g-3 calc-left">' Information was hidden for personal reason !'</div><div class="ui-g-9 calc-right"> <strong id="bankaddresshd"></strong> </div>
+                    </div>
+
+                    <div align="left" class="sentence"><p>- ' Information was hidden for personal reason !'</p></div>
+                    <div align="left" class="sentence"><p>- ' Information was hidden for personal reason !'</p></div>
+
+                    <div align="left" class="subsubsection">' Information was hidden for personal reason !'</div> 
+
+                    <div align="left" class="sentence"><p>- ' Information was hidden for personal reason !' <strong id="kyhanhd"></strong> ' Information was hidden for personal reason !';</p></div>
+                    <div align="left" class="sentence"><p>- ' Information was hidden for personal reason !' <strong id="sotien2hd"></strong> cho Bên B;</p></div>
+                    <div align="left" class="sentence"><p>- ' Information was hidden for personal reason !' <strong id="sotientramoithanghd"></strong> (Số tiền thanh toán mỗi tháng đã bao gồm một phần (hoặc toàn bộ) tiền gốc, 3.0% phí bảo hiểm khoản vay và 5.0% lãi suất);</p></div>
+                    <div align="left" class="sentence"><p>- ' Information was hidden for personal reason !'</p></div>
+
+                    <div align="left" class="subsubsection">' Information was hidden for personal reason !'</div> 
+
+                    <div align="left" class="sentence"><p>-' Information was hidden for personal reason !'</p></div>
+                    <div align="left" class="sentence"><p>- ' Information was hidden for personal reason !' <strong id="lsqh"></strong>, ' Information was hidden for personal reason !'</p></div>
+                	<div align="left" class="sentence"><p>- ' Information was hidden for personal reason !'</p></div>
+                	<div align="left" class="sentence"><p>-' Information was hidden for personal reason !'</p></div>
+
+                	<div align="left" class="subsubsection">' Information was hidden for personal reason !'</div> 
+                	<div align="left" class="sentence"><p>' Information was hidden for personal reason !'</p></div>
+
+                	<div align="left" class="subsubsection">' Information was hidden for personal reason !'</div> 
+                	<div align="left" class="sentence"><p>- ' Information was hidden for personal reason !';</p></div>
+                	<div align="left" class="sentence"><p>- ' Information was hidden for personal reason !'</p></div>
+                	<div align="left" class="sentence"><p>- ' Information was hidden for personal reason !'</p></div>
+                	<div align="left" class="sentence"><p>- ' Information was hidden for personal reason !'</p></div>
+                	<div align="left" class="sentence"><p>- ' Information was hidden for personal reason !'</p></div>
+                	<div align="left" class="sentence"><p>- ' Information was hidden for personal reason !'</p></div>
+
+                	<div align="left" class="subsubsection">' Information was hidden for personal reason !'</div> 
+                	<div align="left" class="sentence"><p>' Information was hidden for personal reason !'</p></div>
+                	<div align="left" class="sentence"><p>' Information was hidden for personal reason !'</p></div>
+                	<div align="left" class="sentence"><p>' Information was hidden for personal reason !'</p></div>
+                	<div align="left" class="sentence"><p>' Information was hidden for personal reason !'</p></div>
+                	<div align="left" class="sentence"><p>' Information was hidden for personal reason !'</p></div>
+                	<div align="left" class="sentence"><p>' Information was hidden for personal reason !'</p></div>
+                	<div align="left" class="sentence"><p>' Information was hidden for personal reason !'</p></div>
+
+                	<div align="left" class="subsubsection">' Information was hidden for personal reason !'</div> 
+                	<div align="left" class="sentence"><p>- ' Information was hidden for personal reason !'</p></div>
+                	<div align="left" class="sentence"><p>- ' Information was hidden for personal reason !'</p></div>
+                	<div align="left" class="sentence"><p>-' Information was hidden for personal reason !'
+                	<div align="left" class="sentence"><p>' Information was hidden for personal reason !'</p></div>
+
+                	<div align="left" class="subsubsection">' Information was hidden for personal reason !'</div> 
+                	<div align="left" class="sentence"><p>-' Information was hidden for personal reason !'</p></div>
+                	<div align="left" class="sentence"><p>-' Information was hidden for personal reason !'</p></div>
+
+                    <i style="color: blue;font-size: 12px">' Information was hidden for personal reason !'</i>
+
+                	<div align="left" class="section">' Information was hidden for personal reason !' </div>
+
+                	<div align="left" class="sentence" style="margin-top: 20px"><p>' Information was hidden for personal reason !' <a href="#" id="upload_demo">tại đây</a>.</p></div>
+
+                    <div align="left" ><span class="sentence"><strong> - ' Information was hidden for personal reason !'</strong> </span> <span id="statusSIM"> </span> <br><input type="file" accept="image/*" id="uploadSIM"></div>
+
+                    <div align="left" ><span class="sentence " ><strong> - ' Information was hidden for personal reason !'</strong></span> <span id="statusCMND1"> </span> <br><input type="file" accept="image/*" id="uploadCMND1"></div>
+                    <div align="left" ><span class="sentence"><strong> - ' Information was hidden for personal reason !'</strong></span> <span id="statusCMND2"> </span> <br><input type="file" accept="image/*" id="uploadCMND2"></div>
+
+                    <div align="left" ><span class="sentence"><strong> - ' Information was hidden for personal reason !'</strong></span> <span id="statusHDLD"> </span> <br><input type="file" accept="image/*" id="uploadHDLD"></div>
+
+                    <div align="left" ><span class="sentence"><strong> - ' Information was hidden for personal reason !'<span id="sk1"></span></strong></span> <span id="statusSAOKE1"> </span> <br><input type="file" accept="image/*" id="uploadSAOKE1"></div>
+
+                    <div align="left" ><span class="sentence"><strong> - ' Information was hidden for personal reason !' <span id="sk2"></span></strong></span> <span id="statusSAOKE2"> </span> <br><input type="file" accept="image/*" id="uploadSAOKE2"></div>
+
+                    <div align="left" ><span class="sentence"><strong> - ' Information was hidden for personal reason !' <span id="sk3"></span></strong> </span> <span id="statusSAOKE3"> </span> <br><input type="file" accept="image/*" id="uploadSAOKE3"></div>
+
+
+                    <i style="color: blue;font-size: 12px">' Information was hidden for personal reason !':<a href="mailto:hotrovtgonline@gmail.com"> <strong>' Information was hidden for personal reason !'</strong></a> )</i>
+
+                    <p id="mrs"></p>
+
+
+
+                	<div align="left" class="sentence" style="margin-top: 30px"><input type="checkbox" id="myCheck"> ' Information was hidden for personal reason !' <a href="' Information was hidden for personal reason !'" target="_blank">Điều kiện Sử dụng</a> và <a href="' Information was hidden for personal reason !'" target="_blank">Bảo mật</a>.</input></div>
+
+
+
+                    <div class="field btns">
+                        <button class="prev-1 prev">Trở về</button>
+                        <button class="submit">Nộp hồ sơ</button>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+
+
+    </div>
+
+    </div>
+</body>
+
+
+
+</html>
+

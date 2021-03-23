@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vn-VN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <title>' Information was hidden for personal reason !'</title>
+ 
+
+
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+    <script type="text/javascript" src="js/mfb.js"></script>
+
+</head>
+
+
+<style type="text/css">
+   
+    p {
+        text-align: justify;
+    }
+    h1 {
+        font-weight:500;
+    }
+    img {
+        max-width:400px;
+        width: 100%;
+        height: auto;
+        margin-top: 20px
+    }
+</style>
+
+<body style="color: #fff; padding: 10px;min-height: 100vh">
+    <div style="max-width: 1067px;margin: 0 auto;">
+
+        <div class="layout-main">
+                   <h1>Hướng dẫn xác nhận vị trí trên thiết bị Android</h1>
+                        <h2> I. Bật định vị </h2>
+                        <p>- Bước 1. Tại thanh công cụ chọn <strong>Bật vị trí</strong> hoặc vào <strong>Cài đặt</strong> > <strong>Vị trí</strong> và bật nút vị trí </p>
+                        <img  src="https://i.imgur.com/RYBjkdt.png">
+                        <img  src="https://i.imgur.com/Gk8hrUC.png">
+                        
+                        <h2> II. Thiết lập quyền truy cập vị trí cho ứng dụng</h2>
+                        <p> Để đảm bảo không xảy ra lỗi trong quá trình thiết lập, vui lòng sử dụng một trong các trình duyệt web phổ biến như: Google, Chrome, Cốc Cốc, Opera, Firefox...</p>
+                        <img  src="https://i.imgur.com/gwRQzBX.png">
+
+                        <p>Các lỗi thường gặp:</p>
+                        <p>- <strong>Bạn đã chặn quyền truy cập vị trí trên trình duyệt này</strong></p>
+
+                        <p> <span>+ Cách 1. Truy cập vào phần <strong>Cài đặt</strong> > <strong>Bảo mật và vị trí</strong> > <strong>Vị trí</strong> > <strong>Quyền cấp ứng dụng</strong> và bật Quyền vị trí cho trình duyệt đang sử dụng </span></p>
+                        <img  src="https://i.imgur.com/gdOAEo7.png">
+                        <p> <span>+ Cách 2. Truy cập vào phần <strong>Cài đặt</strong> > <strong>Ứng dụng và thông báo</strong> > chọn trình duyệt đang sử dụng (<strong>Google</strong>) > <strong>Quyền</strong> >  bật Quyền vị trí </span></p>
+
+                         <img  src="https://i.imgur.com/5M9dHfv.png">
+                         <img  src="https://i.imgur.com/wNLUCqU.png">
+                         <img  src="https://i.imgur.com/WJKsfOq.png">
+                         <img  src="https://i.imgur.com/iysGFEt.png">
+
+
+
+
+                        <p> <span>+ Cách 3. Dành cho các thiết bị không hổ trợ bật quyền trực tiếp trong phần cài đặt </span></p>
+                        <p> <span>Đối với các trình duyệt <strong>Google, Chrome, Cốc Cốc:</strong></span></p>
+                        <p> <span>+ Bước 1. Truy cập vào phần <strong>Menu</strong> ở góc trên bên phải màn hình</span></p>
+                        <img  src="https://i.imgur.com/ICrVX3q.png">
+                        <p> <span>+ Bước 2. Chọn biểu tượng chữ <strong>i</strong> như hình</span></p>
+                        <img  src="https://i.imgur.com/IDdbK3C.png">
+                        <p> <span>+ Bước 3. Chọn <strong>Cài đặt trang web</strong></span></p>
+                        <img  src="https://i.imgur.com/YCTRP7E.png">
+                        <p> <span>+ Bước 4. Chọn <strong>Xoá và đặt lại</strong></span></p>
+                        <img  src="https://i.imgur.com/I3K3opH.png">
+                        <p> <span>+ Bước 5. Trở về trang chủ và đăng nhập lại tài khoản của bạn.</span></p>
+
+                        <p> <span>Đối với trình duyệt <strong>Opera:</strong></span></p>
+                        <p> <span>+ Bước 1. Truy cập vào biểu tượng <strong>Opera</strong> ở góc dưới bên phải màn hình</span></p>
+                        <img  src="https://i.imgur.com/jSpXTLB.png">
+                        <p> <span>+ Bước 2. Chọn <strong>Cài đặt</strong></span></p>
+                        <img  src="https://i.imgur.com/gvGQZuG.png">
+                        <p> <span>+ Bước 3. Chọn <strong>Cài đặt trang</strong></span></p>
+                        <img  src="https://i.imgur.com/t9iYWMF.png">
+                        <p> <span>+ Bước 4. Chọn <strong>Vị trí</strong></span></p>
+                        <img  src="https://i.imgur.com/zv9G6vq.png">
+                        <p> <span>+ Bước 5. Chọn <strong>Đặt lại các quyền</strong></span></p>
+                        <img  src="https://i.imgur.com/tziXxXA.png">
+
+
+                        <p>- <strong>Vị trí không khả dụng</strong></p>
+                        <p> <span>Vui lòng thử lại bằng một trình duyệt hoặc thiết bị khác.</span></p>
+                        <p>- <strong>Yêu cầu truy cập vị trí của bạn đã hết hạn</strong></p>
+                        <p> <span>Vui lòng thoát trình duyệt và đăng nhập lại.</span></p>
+
+
+                    <h1>Hướng dẫn xác nhận vị trí trên thiết bị IOS</h1>
+                    <p>- Bước 1. Vào phần <strong>Settings (Cài đặt)</strong> > <strong>Privacy (Bảo mật)</strong> > <strong>Location Services (Dịch vụ định vị)</strong> > bật nút định vị </p>
+                    <p>- Bước 2. Tại phần <strong>Location Services (Dịch vụ định vị)</strong> sau khi nút định vị đã được bật, chọn trình duyệt đang sử dụng > Chọn cho phép truy cập vị trí trong khi sử dụng ứng dụng.</p>
+
+        </div>
+    </div>
+</body>
+
+</html>

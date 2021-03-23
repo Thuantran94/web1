@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <title>VTG Online - Dịch vụ tài chính online</title>
+
+  </head>
+
+    <style type="text/css">
+      
+      button{
+        min-width: 300px;
+        width: 100%;
+        display: none;
+        padding: 10px;
+        margin-top: 5px;
+        color: #ffffff;
+        border: 1px solid #2d56e0;
+        font-size: 16px;
+        border-radius: 5px;
+        transition: all 0.2s ease-in;
+        position: relative;
+        overflow: hidden;
+        
+      }
+
+    </style>
+
+
+    <body style="background: #4568dc; color: white">
+
+    <div style="top: 50%;left: 50%;position: absolute; transform: translate(-50%, -50%);" >
+        
+        <button style="background:#05ad32;" id="event_button" onclick="addEvent()"><strong>Thêm Google Calendar</strong></button>
+        <button style="background:#05ad32" id="authorize_button"  onclick="handleAuthClick()"><strong>Đăng Nhập Google</strong></button>
+        <button style="background:#f5483b" id="signout_button"   onclick="handleAuthClick()"><strong>Đăng Xuất Google</strong></button>
+    </div>
+
+
+    <pre id="content" style="white-space: pre-wrap;"></pre>
+
+    <script type="text/javascript">
+      var CLIENT_ID = '719951329881-ve1kc4gbf15o1ve3a3pco24532d1fnsa.apps.googleusercontent.com';
+      var API_KEY = 'AIzaSyDKDhYaOZ5NEob_J3pREAD4QOmpvThNwCE';
+      var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+      var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
+
+      var authorizeButton = document.getElementById('authorize_button');
+      var signoutButton = document.getElementById('signout_button');
+      var eventButton = document.getElementById('event_button');
+
+
+      var shd        = getUrlVars()["shd"];
+      var thoihan    = getUrlVars()["thoihan"];
+      var user_email = getUrlVars()["email"];
+      var th = parseInt(thoihan);
+      var rsth;
+      if (th >12) {
+         th = 2;
+         var freq = 'WEEKLY';
+         rsth = thoihan + ' dates';
+
+      }else{
+         var freq = 'MONTHLY';
+         rsth = thoihan + ' months';
+      }
+      th = th+1;
+      var description  = 'Kỳ hạn thanh toán HD '+shd+' của bạn sắp đến. Vui lòng thanh toán trước hạn để tránh chi phí phát sinh. Xem thông tin thanh toán tại https://vtgonl.web.app/payment.html?shd='+shd;
+
+      var today = new Date();
+      var dd = String(today.getDate()).padStart(2, '0');
+      var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      var yyyy = today.getFullYear();
+      today = mm + '/' + dd + '/' + yyyy;
+
+      appendPre('SHD : '+shd);
+      appendPre('Time: '+rsth);
+      appendPre('Current Date : '+today);
+
+
+
+
+      function handleClientLoad() {
+        gapi.load('client:auth2', initClient);
+      }
+
+      
+      function initClient() {
+        gapi.client.init({
+          apiKey: API_KEY,
+          clientId: CLIENT_ID,
+          discoveryDocs: DISCOVERY_DOCS,
+          scope: SCOPES
+        }).then(function () {
+
+          gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+          updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+          authorizeButton.onclick = handleAuthClick;
+          signoutButton.onclick = handleSignoutClick;
+        }, function(error) {
+          appendPre(JSON.stringify(error, null, 2));
+        });
+      }
+
+      function updateSigninStatus(isSignedIn) {
+
+        if (isSignedIn) {
+          authorizeButton.style.display = 'none';
+          eventButton.style.display = 'block';
+          signoutButton.style.display = 'block';
+          appendPre('Current Email: ' + gapi.auth2.getAuthInstance().currentUser.get().getBasicProfile().getEmail());
+        } else {
+          authorizeButton.style.display = 'block';
+          eventButton.style.display = 'none';
+          signoutButton.style.display = 'none';
+          appendPre('Current Email: User is not signed in. Please sign in your google account to continue!');
+
+        }
+      }
+
+      function handleAuthClick(event) {gapi.auth2.getAuthInstance().signIn();}
+      function handleSignoutClick(event) {gapi.auth2.getAuthInstance().signOut();}
+
+     
+      function appendPre(message) {
+        var pre = document.getElementById('content');
+        var textContent = document.createTextNode(message + '\n');
+        pre.appendChild(textContent);
+      }
+
+
+      function addEvent() {
+          gapi.client.load('calendar', 'v3', function() {
+
+            let startDateTime  = new Date(today);
+            let finishDateTime = new Date(today);
+
+
+            startDateTime.setTime(startDateTime.getTime());
+            finishDateTime.setTime(finishDateTime.getTime() + (17*60*60*1000));
+
+
+           var event = {
+                'summary': shd,
+                'description': description,
+                'start': {
+                  'dateTime': startDateTime.toISOString(),
+                  'timeZone': 'Asia/Bangkok'
+                },
+                'end': {
+                  'dateTime': finishDateTime.toISOString(),
+                  'timeZone': 'Asia/Bangkok'
+                },
+                'recurrence': [
+                  'RRULE:FREQ='+freq+';COUNT='+th+''
+                ],
+                'attendees': [
+                  {'email': user_email}
+                ],
+                'reminders': {
+                  'useDefault': false,
+                  'overrides': [
+                    {'method': 'email', 'minutes': 48 * 60},
+                    {'method': 'popup', 'minutes': 30}
+                  ]
+                }
+              };
+
+              var request = gapi.client.calendar.events.insert({
+                'calendarId': 'primary',
+                'resource': event
+              });
+
+             request.execute(function(event) {
+                var tb = 'Hợp đồng số '+shd+' đã được thêm vào Google Calendar của bạn ngày '+dd + '/' + mm + '/' + yyyy+'.';
+                alert(tb)
+                window.location.href = "admin.html?shd="+shd;
+            });
+
+              
+          });
+        }
+
+
+
+
+      function getUrlVars() {
+      var vars = {};
+      var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
+          vars[key] = value;
+      });
+      return vars;
+      }
+
+
+    </script>
+
+    <script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+  </body>
+</html>
+
+
+
+
+

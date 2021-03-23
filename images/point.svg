@@ -1,0 +1,22 @@
+<svg width="48" height="48" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <defs>
+  <style>.prefix__cls-5{fill:#21d61b}</style>
+ </defs>
+ <g>
+  <title>Layer 1</title>
+  <g id="prefix__point">
+   <path fill="none" d="m0,0l48,0l0,48l-48,0l0,-48z" id="prefix__Rectangle_374"/>
+   <g id="prefix__Group_1364">
+    <g id="prefix__Group_1354">
+     <path opacity="0.621" fill="#09ff00" d="m24.299,5.35202a19.411,19.411 0 1 1 -19.411,19.41101a19.411,19.411 0 0 1 19.411,-19.41101z" id="prefix__Ellipse"/>
+     <path opacity="0.995" fill="#09ff00" d="m24.3,11.94302a12.821,12.821 0 1 1 -12.821,12.82101a12.821,12.821 0 0 1 12.821,-12.82101z" id="prefix__Ellipse-2"/>
+     <g id="prefix__Group_6660">
+      <circle fill="#18f010" transform="rotate(-12.416 381.418 -2827.31)" r="15.766" cy="-119.07297" cx="-580.40203" id="prefix__Ellipse_320"/>
+    
+      <circle fill="#18f010" class="prefix__cls-5" r="10.571" cy="24.38702" cx="24.38698" id="prefix__Ellipse_321"/>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>
